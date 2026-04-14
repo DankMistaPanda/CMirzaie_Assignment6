@@ -1,0 +1,12 @@
+Problem 4:
+Where n is the number of nodes in the tree and h is the height of the tree, Big-O Time Complexity is O(n) and Big-Omega is Omega(n). This is because each node is visited once during the recover process. The Find() is O(1), plus the recovery step which makes it O(n).
+Space Complexity of Big-O is O(n) and the Big-Omega is Omega(n). This is because the HashSet stores up to n recovered values and the recursion operation uses O(h) space. Keeping the total Linear.
+
+Problem 5:
+Where n is the number of strings in the heap array and r is the number of strings with length < x. The Time Complexity is O(n) and Omega(n). This is because every element in the array is checked every time.
+Space Complexity is O(n) and Omega(1). This is because the result list stores the matching strings.
+
+Problem 6:
+Where n is the number of nodes in the tree and h is the height of the tree.
+The Time Complexity is O(nh) and Omega(n). This is because the traversal takes O(n) and each deletion takes up to O(h) time since the program needs to find the leftmost node in the right subtree.
+The Space Complexity is O(h) and Omega(h). This is because the recursion amount depends on the height of the tree.
