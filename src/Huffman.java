@@ -70,5 +70,41 @@ Encoded:
 More examples on Huffman coding can be found at:
 https://www.w3schools.com/dsa/dsa_ref_huffman_coding.php
  */
+import java.util.HashMap;
+import java.util.Map;
+
 public class Huffman {
+    HashMap<Character, Integer> freqCount;
+    public Huffman(){
+        freqCount = new HashMap<Character, Integer>();
+    }
+    //Compute the frequency of each character in the input string.
+    public void frequencyCount(String text){
+        char[] strArray = text.toCharArray();
+        for(char c : strArray){
+            if(freqCount.containsKey(c)){
+                freqCount.put(c, freqCount.get(c)+1);
+            } else{
+                freqCount.put(c,1);
+            }
+        }
+    }
+    //Use a min-heap to construct the Huffman tree where each leaf node represents a character and the path from root to leaf defines its binary code.
+    public void buildHuffman(){
+
+    }
+    //From the constructed tree, generate a mapping of each character to its binary code. (Note: The total number of elements mapped should be text.length)
+    public void genCode(){
+
+    }
+    //Replace each character in the input string with its corresponding Huffman code and return the encoded text.
+    public String encode(String text){
+        return "";
+    }
+    //Print to console: the frequency table (character and frequency), the Huffman code mapping for each character, and the encoded binary string..
+    public void printStats(){
+        for(Map.Entry entry : freqCount.entrySet()){
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+    }
 }
