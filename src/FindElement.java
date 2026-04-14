@@ -15,5 +15,51 @@ t = 1
 Sample Output
 True
  */
+import java.util.HashSet;
+import java.util.Set;
 public class FindElement {
+    static class TreeNode{
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int val){
+            this.val = val;
+        }
+    }
+    private final Set<Integer> values;
+
+    public FindElement(TreeNode root){
+        values = new HashSet<>();
+        if(root != null) {
+            root.val = 1;
+            recover(root);
+        }
+    }
+    private void recover(TreeNode node){
+        if(node == null || node.val == -1){
+            return;
+        }
+        values.add(node.val);
+        if(node.left != null && node.left.val != -1){
+            node.left.val = 3 * node.val + 1;
+            recover(node.left);
+        }
+        if (node.right != null && node.right.val != -1){
+            node.right.val = 2 * node.val + 5;
+            recover(node.right);
+        }
+    }
+    public boolean find(int target){
+        return values.contains(target);
+    }
+    public static void main(String[] args){
+        TreeNode root = new TreeNode(-2);
+        root.left = new TreeNode(-2);
+        root.right = new TreeNode(-1);
+        root.left.left = new TreeNode(-2);
+        root.left.right = new TreeNode(-1);
+
+        FindElement tree = new FindElement(root);
+        System.out.println(tree.find(1));
+    }
 }
