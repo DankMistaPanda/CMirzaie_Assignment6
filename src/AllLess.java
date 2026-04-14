@@ -15,5 +15,25 @@ x = 3
 Sample Output
 [ “as” ]
  */
+import java.util.ArrayList;
+import java.util.List;
 public class AllLess {
+    public static List<String> allLess(String[] s, int x){
+        List<String> result = new ArrayList<>();
+        if (s == null || s.length == 0){
+            return result;
+        }
+        for (String str : s){
+            if(str != null && str.length() < x){
+                result.add(str);
+            }
+        }
+        return result;
+    }
+    public static void main(String[] args){
+        String[] s = {"zero", " size", "nutella", "jojo", "luna", "isse", "astor", "as", "entretien","", "cal"};
+        int x = 3;
+
+        System.out.println(allLess(s,x));
+    }
 }
